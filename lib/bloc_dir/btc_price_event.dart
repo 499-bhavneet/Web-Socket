@@ -13,3 +13,4 @@ class PriceUpdated extends PriceEvent {
 
   PriceUpdated(this.markPrice);
 }
+

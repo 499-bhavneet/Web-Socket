@@ -1,14 +1,16 @@
-class PriceState {
+import 'package:equatable/equatable.dart';
+
+class PriceState extends Equatable {
   final double? markPrice;
   final double? alertPrice;
   final bool alertPlayed;
   final String statusMessage;
 
-  PriceState({
+  const PriceState({
     this.markPrice,
     this.alertPrice,
     this.alertPlayed = false,
-    this.statusMessage = "No alert set.",
+    this.statusMessage = '',
   });
 
   PriceState copyWith({
@@ -24,4 +26,11 @@ class PriceState {
       statusMessage: statusMessage ?? this.statusMessage,
     );
   }
+
+  @override
+  List<Object?> get props => [markPrice, alertPrice, alertPlayed, statusMessage];
+
+  @override
+  String toString() => 'PriceState(markPrice: $markPrice, alertPrice: $alertPrice, '
+      'alertPlayed: $alertPlayed, statusMessage: $statusMessage)';
 }
